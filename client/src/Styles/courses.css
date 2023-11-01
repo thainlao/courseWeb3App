@@ -1,0 +1,91 @@
+.courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 12px;
+}
+
+.courses button {
+    padding: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border: none;
+    cursor: pointer;
+}
+
+.courses_section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.single_course {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Course Detailied */
+/* Course Detailied */
+/* Course Detailied */
+
+.course_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blueviolet;
+    padding: 16px;
+    max-width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+@media (min-width: 1200px) {
+    .course_container {
+        flex-direction: row;
+    }
+}
+
+.course_container_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.course_container_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.course_hours {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    padding-top: 2.5rem;
+}
+
+.course_container_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.course_container_description {
+    margin-top: 20px;
+    padding-top: 2.5rem;
+    text-align: center;
+}

@@ -1,0 +1,62 @@
+/* LOGIN*/
+/* LOGIN*/
+/* LOGIN*/
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
+}
+
+.login_container {
+    background-color: rgba(154, 72, 189, 0.5);
+    padding: 2.5rem;
+}
+
+.loginform {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login_label {
+    display: flex;
+}
+
+.login_label input {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+.login_label_sub {
+
+}
+
+/* register*/
+/* register*/
+/* register*/
+
+.register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
+}
+
+.registerform {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.register_container {
+    background-color: rgba(154, 72, 189, 0.5);
+    padding: 2.5rem;
+}
