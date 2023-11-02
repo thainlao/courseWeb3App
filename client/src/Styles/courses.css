@@ -42,9 +42,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: blueviolet;
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px white;
     padding: 16px;
-    max-width: 80%;
+    max-width: 70%;
     margin: 0 auto;
     flex-direction: column;
 }
@@ -52,6 +53,7 @@
 @media (min-width: 1200px) {
     .course_container {
         flex-direction: row;
+        max-width: 80%;
     }
 }
 
@@ -62,12 +64,30 @@
     justify-content: center;
 }
 
+.course_container_left h2{
+    font-size: 2rem;
+}
+
+.skills_text {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    row-gap: 1rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
+
 .course_container_right {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     width: 50%;
+}
+
+.course_container_right h1 {
+    font-size: 2.5rem;
+    margin: 20px;
 }
 
 .course_hours {
@@ -84,8 +104,46 @@
     gap: 0.6rem;
 }
 
+.course_container_info h2{
+    white-space: nowrap;
+    font-size: 2rem;
+    color: rgb(81, 81, 208);
+}
+
+.course_container_info h3{
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
 .course_container_description {
     margin-top: 20px;
     padding-top: 2.5rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 20px;
+}
+
+.course_container_description p{
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+}
+
+.course_container_description h4{
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+.course_stack_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    row-gap: 3rem;
+}
+
+.course_stack_container h3 {
+    font-size: 1rem;
+    padding-top: 10px;
+    margin-top: 10px;
 }

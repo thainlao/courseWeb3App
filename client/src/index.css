@@ -2,10 +2,16 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 body {
-  background: rgb(62,133,168);
-  background: linear-gradient(90deg, rgba(123,54,152,1) 0%, rgba(123,54,152,1) 35%, rgba(74,31,92,1) 70%, rgba(74,31,92,1) 100%);
+  background: linear-gradient(rgb(25, 223, 150), rgb(135, 25, 178));
+  min-height: 100vh;
+  height: auto;
+  font-family: Poppins sans-serif;
+}
+
+.admin {
+  color: black;
 }

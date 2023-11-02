@@ -31,11 +31,12 @@ const AddminCoursePannel = () => {
       }
 
     return (
-        <label>
+        <label className='admin'>
         <label>
             <p>Stack:</p>
             <textarea
                 value={title}
+                className='admin'
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder='Описание курса'
             />
@@ -46,6 +47,7 @@ const AddminCoursePannel = () => {
             <p>Stack:</p>
             <textarea
                 value={namestack}
+                className='admin'
                 onChange={(e) => setNamestack(e.target.value)}
                 placeholder='Описание курса'
             />
@@ -57,6 +59,7 @@ const AddminCoursePannel = () => {
                 value={nameSubstack}
                 onChange={(e) => setnameSubstack(e.target.value)}
                 placeholder='Описание курса'
+                className='admin'
             />
         </label>
         <button onClick={addStackToPost}>Добавить стек</button>

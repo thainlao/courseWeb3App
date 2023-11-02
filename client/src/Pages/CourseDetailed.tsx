@@ -38,9 +38,9 @@ const CourseDetailed = () => {
 
                 <div className='course_container_left'>
                     <h2>Какие знания вы получите</h2>
-                    <ul>
+                    <ul className='skills_text'>
                         {course?.content.map((contentItem) => (
-                            <li key={contentItem._id}>{contentItem.title}</li>
+                            <div key={contentItem._id}>{contentItem.title}</div>
                         ))}
                     </ul>
                 </div>
@@ -66,18 +66,20 @@ const CourseDetailed = () => {
                     </div>
 
                     <div className='course_container_description'>
+                        <h4>Что в себя включает курс?</h4>
                         <p>{course?.description}</p>
                     </div>
-                </div>
-                <div>
-                    {course?.stack.map((stackItem) => (
-                        <div key={stackItem._id}>
-                            <h2>{stackItem.namestack}</h2>
-                            <h3>{stackItem.nameSubstack}</h3>
-                        </div>
-                    ))}      
-                </div>
 
+                    <div className='course_stack_container'>
+                        {course?.stack.map((stackItem) => (
+                            <div key={stackItem._id}>
+                                <h2>{stackItem.namestack}</h2>
+                                <h3>{stackItem.nameSubstack}</h3>
+                            </div>
+                        ))}      
+                    </div>
+
+                </div>
             </div>
 
             {isLoading ? <p>Loading</p>: ''}
