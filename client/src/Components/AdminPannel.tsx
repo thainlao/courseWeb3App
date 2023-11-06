@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAppDispatch } from '../Store/hoocs';
 import '../Styles/courses.css';
 import { createCourse } from '../Store/reducers/courseSlice';
+import '../Styles/extra.css';
 
 const AdminPannel = () => {
     const dispatch = useAppDispatch();
@@ -22,12 +23,11 @@ const AdminPannel = () => {
     }
 
     return (
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form className='adminpallen' onSubmit={(e) => e.preventDefault()}>
                 <label>
                     <p>Название курса:</p>
                     <input 
-                        type='text'
-                        className='admin'
+                        type='text' 
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Title курса'
@@ -38,7 +38,6 @@ const AdminPannel = () => {
                     <p>Описание курса:</p>
                     <textarea
                         value={description}
-                        className='admin'
                         onChange={(e) => setDescription(e.target.value)}
                         placeholder='Описание курса'
                     />
@@ -49,7 +48,6 @@ const AdminPannel = () => {
                     <input 
                         type='text'
                         value={price}
-                        className='admin'
                         onChange={(e) => setPrice(e.target.value)}
                         placeholder='Цена курса'
                     />

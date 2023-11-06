@@ -1,0 +1,83 @@
+.precourse {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media (min-width: 1200px) {
+    .precourse {
+        height: 100vh;
+    }
+}
+
+.precourse_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    max-width: 76%;
+    margin: 0 auto;
+    background: linear-gradient(rgb(53, 223, 160), rgb(172, 64, 214));
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0px 0px 3px white;
+}
+
+@media (min-width: 1200px) {
+    .precourse_container {
+        max-width: 55%;
+    }
+}
+
+.imagees {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.like {
+    background: linear-gradient(rgb(25, 223, 150), rgb(135, 25, 178));
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.smile {
+    background: linear-gradient(rgb(25, 223, 150), rgb(135, 25, 178));
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.file {
+    background: linear-gradient(rgb(25, 223, 150), rgb(135, 25, 178));
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.precourse_container button {
+    padding: 9px;
+    border: none;
+    color: white;
+    width: 180px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: rgb(135, 25, 178);
+    box-shadow: 0px 0px 4px white;
+    border-radius: 14px;
+}
+.precourse_container button:hover {
+    background: rgb(161, 46, 207);
+    box-shadow: 0px 0px 7px white;
+}
+
+.precourse_container h4 {
+    font-weight: 100;
+}

@@ -52,6 +52,36 @@ export const getMe = createAsyncThunk('auth/getMe',
     }
 })
 
+export const updateUsername = createAsyncThunk('auth/updateUsername', async (newUsername: string) => {
+  try {
+    const { data } = await axios.patch('/auth/updateusername', { newUsername });
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+});
+
+export const updateEmail = createAsyncThunk('auth/updateEmail', async (newEmail: string) => {
+  try {
+    const { data } = await axios.patch('/auth/updateemail', { newEmail });
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+});
+
+export const updateName = createAsyncThunk('auth/updateName', async (newName: string) => {
+  try {
+    const { data } = await axios.patch('/auth/updatename', { newName });
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+});
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -111,6 +141,47 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.status = action.payload.message || 'Произошла ошибка'
           });
+
+          //changeName , Email , Username
+          builder.addCase(updateEmail.pending, (state) => {
+            state.isLoading = true;
+            state.status = null
+          });
+          builder.addCase(updateEmail.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message
+          });
+          builder.addCase(updateEmail.rejected, (state, action: any) => {
+            state.isLoading = false;
+            state.status = action.payload.message || 'Произошла ошибка'
+          });
+
+          builder.addCase(updateName.pending, (state) => {
+            state.isLoading = true;
+            state.status = null
+          });
+          builder.addCase(updateName.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message
+          });
+          builder.addCase(updateName.rejected, (state, action: any) => {
+            state.isLoading = false;
+            state.status = action.payload.message || 'Произошла ошибка'
+          });
+
+          builder.addCase(updateUsername.pending, (state) => {
+            state.isLoading = true;
+            state.status = null
+          });
+          builder.addCase(updateUsername.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message
+          });
+          builder.addCase(updateUsername.rejected, (state, action: any) => {
+            state.isLoading = false;
+            state.status = action.payload.message || 'Произошла ошибка'
+          });
+
 }})
 
 export const checkIsAuth = (state: authState) => Boolean(state.token);

@@ -51,15 +51,23 @@ const LoginPage = () => {
 
         <form className='loginform' onSubmit={e => e.preventDefault()}>
           <div className='login_label'>
+          <h2>Введите Логин</h2>
             <input placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} type='text'/>
           </div>
 
+          <div className="loginline"></div>
+
           <div className='login_label'>
+            <h2>Введите Пароль</h2>
             <input placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} type='password' />
           </div>
 
-          <button type='submit' onClick={handleSubmit}>Войти</button>
+          <div className="loginline"></div>
+
+          <button className='loginbut' type='submit' onClick={handleSubmit}>Войти</button>
         </form>
+
+        <div className="loginline"></div>
 
         <div className='login_label_sub'>
           <h2>нет аккаунта?</h2>

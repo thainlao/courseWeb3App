@@ -9,3 +9,27 @@
     display: flex;
     gap: 1rem;
 }
+
+.navbar a {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 1.3rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; 
+    height: 2px;
+    transform: translateY(5px);
+    background: #93ec88; 
+    transition: width 0.3s ease-in-out; 
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}

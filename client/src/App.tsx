@@ -29,6 +29,9 @@ function App() {
           <Route path="/courses/:courseId" element={<CourseDetailed />} />
         </Routes>
       </Router>
+      <div className="firstpage_boll1"></div>
+      <div className="firstpage_boll2"></div>
+      <div className="firstpage_boll3"></div>
     </Layout>
   );
 }

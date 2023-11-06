@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../Store/hoocs';
-import { checkIsAuth, getMe, logout } from '../Store/reducers/authSlice';
+import { getMe, logout, updateEmail, updateName, updateUsername } from '../Store/reducers/authSlice';
 import '../Styles/dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { isLoading } = useAppSelector((state) => state.authSlice);
+  const { isLoading, status } = useAppSelector((state) => state.authSlice);
   const user = useAppSelector((state) => state.authSlice.user);
 
   useEffect(() => {
@@ -15,6 +15,21 @@ const Dashboard = () => {
   },[dispatch])
 
   const [daysSinceRegistration, setDaysSinceRegistration] = useState<number | null>(null);
+  const [message, setMessage] = useState<string | null>('')
+
+  useEffect(() => {
+    if (status) {
+      setMessage(status);
+
+      const clearMessage = setInterval(() => {
+        setMessage('');
+      }, 3000);
+      return () => {
+        clearInterval(clearMessage);
+      };
+    }
+
+  }, [status, navigate]);
 
   useEffect(() => {
     dispatch(getMe());
@@ -28,7 +43,7 @@ const Dashboard = () => {
 
       setDaysSinceRegistration(daysDifference);
     }
-  }, [dispatch]);
+  }, [dispatch, user?.createdAt]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -36,27 +51,189 @@ const Dashboard = () => {
     navigate('/login');
   }
 
+  const horizontalLineRef = useRef(null);
+  const [animationTriggered, setAnimationTriggered] = useState(false);
+
+  useEffect(() => {
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting && !animationTriggered) {
+                  entry.target.classList.add("nice_appearance");
+                  setAnimationTriggered(true);
+              }
+          });
+      }, { threshold: 0.5 });
+
+      if (horizontalLineRef.current) {
+          observer.observe(horizontalLineRef.current);
+      }
+
+      return () => {
+          if (horizontalLineRef.current) {
+              observer.unobserve(horizontalLineRef.current);
+          }
+      };
+  }, [animationTriggered]);
+
+  //NameChange
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [newName, setNewName] = useState<string>(user?.name || '');
+
+  const handleNameChange = (value: string) => {
+    setNewName(value);
+  };
+
+  const handleSaveName = () => {
+    dispatch(updateName(newName))
+    setIsEditingName(false);
+  }
+
+  const handleEditName = () => {
+    setIsEditingName(true);
+  };
+  
+  const handleCancelEditName = () => {
+    setIsEditingName(false);
+  };
+
+  //newEmail
+  const [isEditingEmail, setIsEditingEmail] = useState(false);
+  const [newEmail, setNewEmail] = useState<string>(user?.email || '');
+
+  const handleEmailChange = (value: string) => {
+    setNewEmail(value);
+  };
+
+  const handleSaveEmail = () => {
+    dispatch(updateEmail(newEmail))
+    setIsEditingEmail(false);
+  }
+
+  const handleEditEmail = () => {
+    setIsEditingEmail(true);
+  };
+  
+  const handleCancelEditEmail = () => {
+    setIsEditingEmail(false);
+  };
+
+  //newUserUsername
+  const [isEditingUsername, setIsEditingUsername] = useState(false);
+  const [newUsername, setNewUsername] = useState<string>(user?.username || '');
+
+  const handleUsernameChange = (value: string) => {
+    setNewUsername(value);
+  };
+
+  const handleSaveUsername = () => {
+    dispatch(updateUsername(newUsername))
+    setIsEditingUsername(false);
+  }
+
+  const handleEditUsername = () => {
+    setIsEditingUsername(true);
+  };
+  
+  const handleCancelEditUsername = () => {
+    setIsEditingUsername(false);
+  };
+
   return (
-    <div>
+    <div className='dashboard'>
       <div>
-        <button onClick={handleLogout}>выйти</button>
         {user && (
           <div className='userinfo'>
-            <h2>Имя: {user.name}</h2>
-            <h2>Почта: {user.email}</h2>
-            <h2>Имя пользователя: {user.username}</h2>
-            <h2>Выпонено достижений: {user.achievements.length}</h2>
-            <h2>Количество дней на проекте: {daysSinceRegistration}</h2>
 
-            <div className='userimg_section'>
-              <div className='userimg'><p>{user.name}</p></div>
-              <h2>{user.email}</h2>
-              <h2>Студент</h2>
+            <div className='namesection' ref={horizontalLineRef}>
+              <div className='nameline_left'></div>
+              {isEditingName ? (
+                <h2>
+                  <span>Имя : </span>
+                  <input 
+                    type='text'
+                    value={newName}
+                    onChange={(e) => handleNameChange(e.target.value)}
+                  />
+                  <button className='cancelbut' onClick={handleCancelEditName}>✖</button>
+                  <button className='confirmbut' onClick={handleSaveName}>✔</button>
+                </h2>
+              ) : (
+                <h2>
+                  <span>Имя : </span>{user.name}
+                  <button className='changebut' onClick={handleEditName}>Change</button>
+                </h2>
+              )}
+              <div className='nameline_right'></div>
             </div>
+            <div className='nameline_high'></div>
+
+            
+            <div className='namesection' ref={horizontalLineRef}>
+              <div className='nameline_left'></div>
+              {isEditingUsername ? (
+                <h2>
+                  <span>UserName : </span>
+                  <input 
+                    type='text'
+                    value={newUsername}
+                    onChange={(e) => handleUsernameChange(e.target.value)}
+                  />
+                  <button className='cancelbut' onClick={handleCancelEditUsername}>✖</button>
+                  <button className='confirmbut' onClick={handleSaveUsername}>✔</button>
+                </h2>
+              ) : (
+                <h2>
+                  <span>Username : </span>{user.username}
+                  <button className='changebut' onClick={handleEditUsername}>Change</button>
+                </h2>
+              )}
+              <div className='nameline_right'></div>
+            </div>
+            <div className='nameline_high'></div>
+
+            <div className='namesection' ref={horizontalLineRef}>
+              <div className='nameline_left'></div>
+              {isEditingEmail ? (
+                <h2>
+                  <span>Почта : </span>
+                  <input 
+                    type='text'
+                    value={newEmail}
+                    onChange={(e) => handleEmailChange(e.target.value)}
+                  />
+                  <button className='cancelbut' onClick={handleCancelEditEmail}>✖</button>
+                  <button className='confirmbut' onClick={handleSaveEmail}>✔</button>
+                </h2>
+              ) : (
+                <h2>
+                  <span>Почта : </span>{user.email}
+                  <button className='changebut' onClick={handleEditEmail}>Change</button>
+                </h2>
+              )}
+              <div className='nameline_right'></div>
+            </div>
+            <div className='nameline_high'></div>
+
+            <div className='namesection' ref={horizontalLineRef}>
+              <div className='nameline_left'></div>
+              <h2><span>Дней на проекте : </span>{daysSinceRegistration}</h2>
+              <div className='nameline_right'></div>
+            </div>
+            <div className='nameline_high'></div>
+
+            <div className='namesection' ref={horizontalLineRef}>
+              <div className='nameline_left'></div>
+              <h2><span>Курсы в наличии : </span>{user.purchasedCourses.length}</h2>
+              <div className='nameline_right'></div>
+            </div>
+            <div className='nameline_high'></div>
+
           </div>
         )}
       </div>
+      <button className='logout' onClick={handleLogout}>выйти</button>
       {isLoading ? <p>Loading</p> : ''}
+      {message ? <h2>{message}</h2> : ''}
     </div>
   )
 }

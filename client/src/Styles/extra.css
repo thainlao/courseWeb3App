@@ -1,0 +1,46 @@
+.adminpallen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: grey;
+    padding: 23px;
+}
+
+.adminpallen label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.adminpallen label input {
+    padding: 12px;
+    color: black;
+}
+
+.adminpallen label textarea {
+    padding: 12px;
+    color: black;
+}
+
+.adminpallen button {
+    background-color: white;
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.extadmin {
+    padding: 12px;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+
+.adminstackpannel {
+    display: flex;
+    gap: 1rem;
+}

@@ -1,17 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
 *{
   margin: 0;
   padding: 0;
   text-decoration: none;
   color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
   background: linear-gradient(rgb(25, 223, 150), rgb(135, 25, 178));
   min-height: 100vh;
   height: auto;
-  font-family: Poppins sans-serif;
+  overflow-x: hidden;
 }
 
 .admin {
   color: black;
+}
+
+.firstpage_boll1 {
+  height: 190px;
+  width: 190px;
+  position: absolute;
+  background: linear-gradient(rgb(53, 190, 140), rgb(144, 51, 180));
+  border-radius: 50%;
+  left: 100%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.firstpage_boll2 {
+  height: 135px;
+  width: 135px;
+  position: absolute;
+  background: linear-gradient(rgb(53, 223, 160), rgb(172, 64, 214));
+  border-radius: 50%;
+  left: 20%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.firstpage_boll3 {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  background: linear-gradient(rgb(53, 223, 160), rgb(76, 160, 108));
+  border-radius: 50%;
+  left: 0%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }

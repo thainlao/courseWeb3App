@@ -46,48 +46,62 @@ const RegisterPage = () => {
 
   return (
     <div className='register'>
-      <div className='register_container'>
+      <div className='login_container'>
         <form className='registerform' onSubmit={e => e.preventDefault()}>
-          <label className='login_label'>
+          <div className='login_label'>
+          <h2>Имя пользователя</h2>
             <input 
               type='text'
               placeholder='Username'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-          </label>
+          </div>
 
-          <label className='login_label'>
+          <div className="loginline"></div>
+
+          <div className='login_label'>
+          <h2>Почта</h2>
             <input 
               type='text'
               placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </label>
+          </div>
 
-          <label className='login_label'>
+          <div className="loginline"></div>
+
+          <div className='login_label'>
+          <h2>Пароль</h2>
           <input 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type='password'
               placeholder='Password'
             />
-          </label>
+          </div>
 
-          <label className='login_label'>
+          <div className="loginline"></div>
+
+          <div className='login_label'>
+          <h2>Ваше имя</h2>
           <input 
               type='text'
               placeholder='Your name'
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </label>
+          </div>
 
-          <button type='submit' onClick={handleSubmit}>Регистрация</button>
+          <div className="loginline"></div>
+
+          <button className='loginbut' type='submit' onClick={handleSubmit}>Регистрация</button>
         </form>
 
-        <div>
+        <div className="loginline"></div>
+
+        <div className='login_label_sub'>
           <h2>уже есть аккаунт?</h2>
           <a href='/login'>Войти</a>
         </div>
