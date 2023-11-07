@@ -107,7 +107,7 @@ const RegisterPage = () => {
         </div>
 
       </div>
-      {isLoading ? <h2>loading</h2> : ''}
+      {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
       {message ? <h2>{message}</h2> : ''}
     </div>
   )

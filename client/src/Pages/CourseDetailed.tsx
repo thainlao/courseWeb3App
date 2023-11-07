@@ -108,7 +108,7 @@ const CourseDetailed = () => {
                 </div>
             </div>
 
-            {isLoading ? <p>Loading</p>: ''}
+            {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
             {message ? <h2>{message}</h2> : ''}
             {isAdmin ? <div><AddminCoursePannel /></div> : ''}
             <LastPage />

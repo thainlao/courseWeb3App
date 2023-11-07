@@ -33,7 +33,7 @@ const AddminCoursePannel = () => {
       }
 
     return (
-        <form className='adminpallen'>
+        <form className='adminpallen' onSubmit={(e) => e.preventDefault()}>
             <div className='adminstackpannel'>
                 <label>
                     <p>Stack:</p>

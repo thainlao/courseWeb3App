@@ -44,6 +44,7 @@ export interface Iuser {
     achievements: any[]
     purchasedCourses: any[];
     createdAt: string;
+    isActivated: boolean;
 }
 
 export interface ICourse {

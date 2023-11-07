@@ -82,6 +82,40 @@ export const updateName = createAsyncThunk('auth/updateName', async (newName: st
   }
 });
 
+export const activateAccount = createAsyncThunk('auth/activateAccount',
+async (activationLink: string) => {
+  try {
+    const { data } = await axios.get(`/auth/activate/${activationLink}`)
+    return data;
+  } catch (e) {
+    console.log(e)
+  }
+})
+
+export const requestPasswordReset = createAsyncThunk(
+  "auth/requestPasswordReset",
+  async (email: string) => {
+    try {
+      const { data } = await axios.post('/auth/requestreset', {email})
+      return data;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async ({ resetToken, newPassword }: { resetToken: any, newPassword: string }) => {
+    try {
+      const { data } = await axios.post("/auth/resetpassword", { resetToken, newPassword });
+      return data
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -181,7 +215,6 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.status = action.payload.message || 'Произошла ошибка'
           });
-
 }})
 
 export const checkIsAuth = (state: authState) => Boolean(state.token);

@@ -125,9 +125,8 @@ const Courses = () => {
 
                 <h6>Мы предлагаем альтернативную программу обучения созданию веб-приложений. Так что не тормози, а начни уже разрабатывать полноценные проекты в сети Интернет!</h6>
             </div>
-            {isLoading ? <p>Loading</p> : ''}
         </div>
-        {isLoading ? <p>loading</p> : ''}
+        {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
         {message ? <h2>{message}</h2>:''}
         </div>
 

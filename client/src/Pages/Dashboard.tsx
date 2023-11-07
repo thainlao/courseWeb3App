@@ -138,11 +138,24 @@ const Dashboard = () => {
     setIsEditingUsername(false);
   };
 
+  const isActivated = useAppSelector((state) => state.authSlice.user?.isActivated || false);
+
   return (
     <div className='dashboard'>
       <div>
         {user && (
           <div className='userinfo'>
+
+            <div className='namesection' ref={horizontalLineRef}>
+              <div className='nameline_left'></div>
+                {isActivated ? (
+                  <h4>Активировано</h4>
+                ) : (
+                  <h5>Не активировано</h5>
+                )}
+              <div className='nameline_right'></div>
+            </div>
+            <div className='nameline_high'></div>            
 
             <div className='namesection' ref={horizontalLineRef}>
               <div className='nameline_left'></div>
@@ -232,7 +245,7 @@ const Dashboard = () => {
         )}
       </div>
       <button className='logout' onClick={handleLogout}>выйти</button>
-      {isLoading ? <p>Loading</p> : ''}
+      {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
       {message ? <h2>{message}</h2> : ''}
     </div>
   )

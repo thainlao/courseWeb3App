@@ -53,10 +53,61 @@
     justify-content: center;
     font-size: 16px;
     position: relative;
+    gap: 0.4rem;
+}
+
+.namesection h4 {
+    padding: 12px;
+    border: 1px solid rgb(85, 72, 72);
+    border-radius: 12px;
+    box-shadow: 0px 0px 6px grey;
+    white-space: nowrap;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: relative;
+    gap: 0.4rem;
+    background: linear-gradient(rgb(94, 189, 94), rgb(118, 218, 135));
+}
+
+.namesection h5 {
+    padding: 12px;
+    border: 1px solid rgb(85, 72, 72);
+    border-radius: 12px;
+    box-shadow: 0px 0px 6px grey;
+    white-space: nowrap;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: relative;
+    gap: 0.4rem;
+    background: linear-gradient(rgb(216, 121, 121), rgb(219, 133, 111));
 }
 
 .namesection h2:hover .changebut {
     opacity: 1;
+}
+
+.activate {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.activate a {
+    text-decoration: underline;
+    font-size: 1.4rem;
 }
 
 .changebut {

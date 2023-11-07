@@ -65,6 +65,7 @@ const LoginPage = () => {
           <div className="loginline"></div>
 
           <button className='loginbut' type='submit' onClick={handleSubmit}>Войти</button>
+          <a href='/reset-password'>Забыли пароль?</a>
         </form>
 
         <div className="loginline"></div>
@@ -76,7 +77,7 @@ const LoginPage = () => {
 
       </div>
       {message ? <h2>{message}</h2>:''}
-      {isLoading ? <p>loading</p> : ''}
+      {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
     </div>
   )
 }
