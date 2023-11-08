@@ -6,18 +6,15 @@ export const purchaseCourse = async (req, res) => {
         const { courseId } = req.params;
         const userId = req.userId;
 
-        // Найти курс по его идентификатору
         const course = await Course.findById(courseId);
         if (!course) {
             return res.json({ message: 'Курс не найден' });
         }
 
-        // Добавить пользователя в список покупателей курса
         course.owners.push(userId);
         course.numberOfBuyers += 1;
         await course.save();
 
-        // Добавить курс в список купленных курсов пользователя
         const user = await User.findById(userId);
         user.purchasedCourses.push(courseId);
         await user.save();
@@ -30,12 +27,17 @@ export const purchaseCourse = async (req, res) => {
 
 export const createCourse = async (req, res) => {
     try {
-        const { title, description, price } = req.body;
+        const { title, description, price, hours, lessons, tasks  } = req.body;
+        const author = req.userId;
 
         const newCourse = new Course({
             title,
             description,
             price,
+            hours,
+            lessons,
+            tasks,
+            author
         });
 
         await newCourse.save();

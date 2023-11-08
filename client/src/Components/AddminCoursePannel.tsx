@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../Store/hoocs';
 import { addContent, addStack, getcourseById } from '../Store/reducers/courseSlice';
 import { useEffect, useState } from 'react';
 import '../Styles/courses.css';
-import '../Styles/extra.css';
+import '../Styles/admin.css';
 
 const AddminCoursePannel = () => {
     const dispatch = useAppDispatch();
@@ -42,9 +42,11 @@ const AddminCoursePannel = () => {
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Название курса'
                     />
+                    <button className='extadmin' onClick={addContenttoPost}>Добавить описание курса</button>
                 </label>
-                <button className='extadmin' onClick={addContenttoPost}>Добавить описание курса</button>
             </div>
+
+            <div className="adminline"></div>
 
             <div className='adminstackpannel'>
                 <label>

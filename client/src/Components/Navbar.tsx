@@ -15,6 +15,7 @@ const Navbar = () => {
       </div>
 
       <div className='navbar_right'>
+        <a href='/createcourse'>СОЗДАТЬ КУРС</a>
         <a>БЛОГ</a>
         <a href='/courses'>КУРСЫ</a>
         {isAuth ? <a href='/dashboard'>ПАНЕЛЬ УПРАВЛЕНИЯ</a> : <a href='/login'>ВОЙТИ</a>}

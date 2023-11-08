@@ -12,6 +12,7 @@ import CourseDetailed from "./Pages/CourseDetailed";
 import ActivationPage from "./Pages/ActivationPage";
 import RequestPasswordReset from "./Pages/RequestPasswordReset";
 import ResetPassword from "./Pages/ResetPassword";
+import CreateCoursePage from "./Pages/CreateCoursePage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -32,6 +33,7 @@ function App() {
           <Route path="/courses/:courseId" element={<CourseDetailed />} />
           <Route path="/activate/:link" element={<ActivationPage />} />
           <Route path="/reset-password" element={<RequestPasswordReset />} />
+          <Route path="/createcourse" element={<CreateCoursePage />} />
           <Route path="/reset-password/:resetToken" element={<ResetPassword />}/>
         </Routes>
       </Router>

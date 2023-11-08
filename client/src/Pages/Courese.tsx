@@ -93,7 +93,7 @@ const Courses = () => {
                             <div className="widthline"></div>
 
                             <div>
-                                <p>{course.description}</p>
+                                <p className='course_descr'>{course.description}</p>
                             </div>
                             <div className="widthline"></div>
                             <div className='course_but_section'>

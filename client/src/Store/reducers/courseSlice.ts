@@ -11,10 +11,10 @@ const initialState: courseState = {
 }
 
 export const createCourse = createAsyncThunk('course/createCourse',
-    async ({title, description, price}: any) => {
+    async ({title, description, price, tasks, lessons, hours}: any) => {
         try {
             const { data } = await axios.post(`/course/createcourse`,
-            {title, description, price});
+            {title, description, price, tasks, lessons, hours});
             return data;
         } catch (e) {
             console.log(e);

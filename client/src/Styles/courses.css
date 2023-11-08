@@ -95,6 +95,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 4px;
+    font-size: 0.6rem;
     border-radius: 12px;
     border: 1px solid silver;
     transition: all 0.2s ease-in;
@@ -181,7 +182,11 @@
 
 .course_skill_text {
     color: black;
-    font-size: 24px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
 }
 
 .leftboll {
@@ -218,6 +223,13 @@
     top: 80%;
     transform: translate(-50%, -50%);
     z-index: -1;
+}
+
+.course_descr {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 

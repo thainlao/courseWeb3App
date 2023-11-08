@@ -15,6 +15,7 @@ const CourseDetailed = () => {
     
     const user = useAppSelector((state) => state.authSlice.user);
     const isAdmin = user?.username === 'admin';
+    const isCreator = user?._id == course?.author;
 
     const navigate = useNavigate();
     const isAuth = useAppSelector((state) => checkIsAuth(state.authSlice))
@@ -46,7 +47,6 @@ const CourseDetailed = () => {
     return (
         <div>
             <div className="course_container">
-
                 <div className='course_container_left'>
                     <h2>Какие знания вы получите</h2>
                     <ul className='skills_text'>
@@ -65,17 +65,17 @@ const CourseDetailed = () => {
 
                     <div className='course_hours'>
                         <div className='course_container_info'>
-                            <h2>21</h2>
+                            <h2>{course?.hours}</h2>
                             <h3>часов практики</h3>
                         </div>
 
                         <div className='course_container_info'>
-                            <h2>43</h2>
+                            <h2>{course?.lessons}</h2>
                             <h3>уроков</h3>
                         </div>
 
                         <div className='course_container_info'>
-                            <h2>56</h2>
+                            <h2>{course?.tasks}</h2>
                             <h3>заданий</h3>
                         </div>
                     </div>
@@ -111,6 +111,7 @@ const CourseDetailed = () => {
             {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
             {message ? <h2>{message}</h2> : ''}
             {isAdmin ? <div><AddminCoursePannel /></div> : ''}
+            {isCreator ? <div><AddminCoursePannel /></div> : ''}
             <LastPage />
         </div>
     )

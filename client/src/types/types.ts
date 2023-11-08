@@ -57,4 +57,8 @@ export interface ICourse {
     createdAt: string;
     content: any[];
     stack: any[];
+    hours: number | null;
+    lessons: number | null;
+    tasks: number | null;
+    author: any;
 }
