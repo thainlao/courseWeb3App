@@ -7,7 +7,6 @@ import '../Styles/reset.css';
 const ResetPassword = () => {
   const dispatch = useAppDispatch();
   const [newPassword, setNewPassword] = useState("");
-  const navigate = useNavigate();
   const { resetToken } = useParams();
 
   const [message, setMessage] = useState<string>('');
@@ -19,7 +18,7 @@ const ResetPassword = () => {
   
         const clearMessage = setInterval(() => {
           setMessage('');
-        }, 3000);
+        }, 4500);
         return () => {
           clearInterval(clearMessage);
         };
@@ -32,7 +31,8 @@ const ResetPassword = () => {
       const resultAction = await dispatch(resetPassword({ resetToken, newPassword }));
 
       if (resetPassword.fulfilled.match(resultAction)) {
-        setMessage('all is good')
+        setMessage('Пароль успешно изменен!')
+        setNewPassword('');
       } else {
         console.log("Ошибка при сбросе пароля", resultAction.error);
       }
@@ -53,9 +53,13 @@ const ResetPassword = () => {
           onChange={(e) => setNewPassword(e.target.value)}
         />
         <button onClick={handleResetPassword}>Сбросить пароль</button>
-        {message ? <h2>{message}</h2> : ''}
-        {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
       </div>
+      {message ? 
+      <div className='message_container'>
+        <h2 className="message">{message}</h2>
+      </div>
+      :''}
+      {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
     </div>
   );
 };

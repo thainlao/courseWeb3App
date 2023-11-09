@@ -109,7 +109,11 @@ const CourseDetailed = () => {
             </div>
 
             {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
-            {message ? <h2>{message}</h2> : ''}
+            {message ? 
+            <div className='message_container'>
+                <h2 className="message">{message}</h2>
+            </div>
+            :''}
             {isAdmin ? <div><AddminCoursePannel /></div> : ''}
             {isCreator ? <div><AddminCoursePannel /></div> : ''}
             <LastPage />

@@ -15,7 +15,7 @@ const RequestPasswordReset = () => {
     
           const clearMessage = setInterval(() => {
             setMessage('');
-          }, 3000);
+          }, 4500);
           return () => {
             clearInterval(clearMessage);
           };
@@ -25,7 +25,8 @@ const RequestPasswordReset = () => {
 
     const handleRequestReset = () => {
         try {
-            dispatch(requestPasswordReset(email))
+            dispatch(requestPasswordReset(email));
+            setEmail('');
         } catch (e) {
             console.log(e)
         }
@@ -44,7 +45,11 @@ const RequestPasswordReset = () => {
                 <button onClick={handleRequestReset}>Запросить сброс пароля</button>
             </div>
             {isLoading ? <div className='container'><div className="overlay"><div className="loader"></div></div></div> : ''}
-            {message ? <h2>{message}</h2> : ''}
+            {message ? 
+      <div className='message_container'>
+        <h2 className="message">{message}</h2>
+      </div>
+      :''}
         </div>
     )
 }

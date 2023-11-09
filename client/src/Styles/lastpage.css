@@ -1,5 +1,75 @@
 .lastpage {
-    height: 60vh;
+    height: 100vh;
     width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    position: relative;
+}
 
+.lastpage_contaier {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 3rem;
+    row-gap: 3.5rem;
+    align-items: center;
+    column-gap: 5.5rem;
+    margin-bottom: 65px;
+}
+
+@media (min-width: 1200px) {
+    .lastpage_contaier {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 3rem; 
+    }
+}
+
+.general{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.course_lastsection{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.lastpage_contaier h3 {
+    font-size: 1.6rem;
+}
+
+.lastpage_contaier h4 {
+    font-size: 1rem;
+}
+
+.lastpage_contaier h4:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.lastpage h5 {
+    font-size: 1rem;
+    position: absolute;
+    left: 50%;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    bottom: 2%;
+    transform: translate(-50%,-50%);
 }
